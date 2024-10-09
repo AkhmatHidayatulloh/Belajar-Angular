@@ -1,0 +1,142 @@
+<mat-card>
+  <h1 style="margin-left: 20px;">Transaksi Penjualan</h1>
+  <mat-card-header>
+    <button mat-raised-button color="primary" (click)="addtransaksi()"><mat-icon>add</mat-icon>Add Product</button>
+  </mat-card-header>
+  <br>
+  <mat-card-content *ngIf="!isAdd">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id. </th>
+        <td mat-cell *matCellDef="let transaksi"> {{transaksi.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="idProduct">
+        <th mat-header-cell *matHeaderCellDef> ID Produk </th>
+        <td mat-cell *matCellDef="let transaksi"> {{transaksi.idProduct}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="idCustomer">
+        <th mat-header-cell *matHeaderCellDef> ID Customer </th>
+        <td mat-cell *matCellDef="let transaksi"> {{transaksi.idCustomer}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="alamatPengiriman">
+        <th mat-header-cell *matHeaderCellDef> Alamat Pengiriman </th>
+        <td mat-cell *matCellDef="let transaksi"> {{transaksi.alamatPengiriman}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="jumlahBeli">
+        <th mat-header-cell *matHeaderCellDef> Jumlah Beli </th>
+        <td mat-cell *matCellDef="let transaksi"> {{transaksi.jumlahBeli}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hargaSatuan">
+        <th mat-header-cell *matHeaderCellDef> Harga Satuan </th>
+        <td mat-cell *matCellDef="let transaksi"> {{transaksi.hargaSatuan}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hargaTotal">
+        <th mat-header-cell *matHeaderCellDef> Harga Total </th>
+        <td mat-cell *matCellDef="let transaksi"> {{transaksi.hargaTotal}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </mat-card-content>
+</mat-card>
+
+
+
+<form [formGroup]="transaksiForm" (ngSubmit)="saveTransaksi()" *ngIf="isAdd ">
+  <mat-card>
+
+    <mat-card-header>
+      <h2>{{ isAdd ? 'Add' : '' }} Form</h2>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field style="width: 100%;">
+        <mat-label>id </mat-label>
+        <input matInput formControlName="id">
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Pilih Produk</mat-label>
+        <mat-select formControlName="idProduct">
+          <mat-option *ngFor="let product of products" [value]="product.id">
+            {{ product.namaProduk }} <!-- Menampilkan nama produk -->
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Pilih Customer</mat-label>
+        <mat-select formControlName="idCustomer">
+          <mat-option *ngFor="let customer of customer" [value]="customer.id">
+            {{ customer.nama }} <!-- Menampilkan nama produk -->
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+    <!--
+    <mat-card-content>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Pilih Customer </mat-label>
+        <input type="number" matInput formControlName="idCustomer">
+      </mat-form-field>
+    </mat-card-content> -->
+
+    <mat-card-content>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Alamat Pengiriman </mat-label>
+        <input type="text" matInput formControlName="alamatPengiriman">
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Jumlah Beli </mat-label>
+        <input type="number" matInput formControlName="jumlahBeli">
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Harga Satuan </mat-label>
+        <input type="number" matInput formControlName="hargaSatuan" readonly>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Harga Total </mat-label>
+        <input type="number" matInput formControlName="hargaTotal" readonly>
+      </mat-form-field>
+    </mat-card-content>
+
+    <!-- <mat-card-content>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Tanggal Penjualan</mat-label>
+        <input type="date" matInput [matDatepicker]="picker1" formControlName="tanggalPanjualan">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </mat-card-content> -->
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Save</button>
+      &nbsp;
+      <button mat-raised-button color="warn" (click)="BackTable()">Cencel</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

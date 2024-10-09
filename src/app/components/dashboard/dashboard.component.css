@@ -1,0 +1,60 @@
+mat-card {
+  margin: 2%;
+  text-align: left;
+}
+
+.mat-mdc-form-field {
+  width: 98%;
+  margin: 1px;
+}
+.mat-50 {
+  width: 48%;
+  margin: 1%;
+}
+.div-50 {
+  width: 48%;
+  margin: 1%;
+  display: inline;
+}
+
+button {
+  margin: 2px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between; /* Mengatur jarak antar card */
+  flex-wrap: wrap; /* Agar card bisa wrap jika layar sempit */
+  gap: 16px; /* Jarak antara card */
+}
+
+.example-card {
+  flex: 1;
+  min-width: 250px; /* Lebar minimum card */
+  margin: 10px;
+  max-width: 400px;
+}
+
+.mat-card {
+  width: 100%;
+}
+
+.card-customer {
+  background-color: #e3f2fd; /* Biru muda */
+  color: #0d47a1; /* Biru tua untuk teks */
+}
+
+.card-product {
+  background-color: #ffe0b2; /* Oranye terang */
+  color: #e65100; /* Oranye tua untuk teks */
+}
+
+.card-sales {
+  background-color: #ffccbc; /* Merah muda terang */
+  color: #bf360c; /* Merah tua untuk teks */
+}
+
+.card-revenue {
+  background-color: #c8e6c9; /* Hijau muda */
+  color: #2e7d32; /* Hijau tua untuk teks */
+}

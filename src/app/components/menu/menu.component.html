@@ -1,0 +1,65 @@
+<mat-accordion>
+  <!-- Dashboard Panel -->
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>dashboard</mat-icon>
+        Dashboard
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item>
+        <a extended color="primary" routerLink="/dashboard">
+          <mat-icon>home</mat-icon>
+          Dashboard
+        </a>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-expansion-panel>
+
+  <!-- Data Master Panel -->
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>storage</mat-icon>
+        Data Master
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item>
+        <a extended color="primary" routerLink="/customer">
+          <mat-icon>people</mat-icon>
+          Customer
+        </a>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <a extended color="primary" routerLink="/product">
+          <mat-icon>shopping_cart</mat-icon>
+          Product
+        </a>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-expansion-panel>
+
+  <!-- Data Transaksi Panel -->
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>show_chart</mat-icon>
+        Transaksi
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item>
+        <a extended color="primary" routerLink="/transaksi-penjualan">
+          <mat-icon>pie_chart</mat-icon>
+          Transaksi Penjualan
+        </a>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
